@@ -1,0 +1,161 @@
+{
+  "source": "KMA ASOS, Seoul station 108, 2024-01-01 00:00 to 2024-12-31 23:00 KST",
+  "rows": 8784,
+  "rain_state": {
+    "blank_qc9": 1732,
+    "blank_no_flag": 6096,
+    "explicit_zero": 437,
+    "positive": 519
+  },
+  "rain_positive_hours_year": 519,
+  "core_months_for_hourly_rain_comparison": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "rain_positive_hours_core": 411,
+  "rain_positive_days_year": 110,
+  "temperature_min_c": -14.0,
+  "temperature_max_c": 36.3,
+  "recorded_rain_max_mm": 39.0,
+  "recorded_rain_negative_count": 0,
+  "rain_positive_days": 69,
+  "monthly_mean_temperature_c": {
+    "1": -0.47,
+    "2": 3.83,
+    "3": 6.91,
+    "4": 16.3,
+    "5": 18.47,
+    "6": 24.57,
+    "7": 26.56,
+    "8": 29.32,
+    "9": 25.47,
+    "10": 16.67,
+    "11": 9.74,
+    "12": 0.89
+  },
+  "diurnal_mean_min_hour": "6",
+  "diurnal_mean_max_hour": "15",
+  "diurnal_mean_min_c": 11.7,
+  "diurnal_mean_max_c": 18.77,
+  "delta1_by_observed_rain_intensity": {
+    "0.1-0.9": {
+      "n": 206,
+      "median": -0.1,
+      "mean": -0.22,
+      "negative_pct": 57.3
+    },
+    "1.0-4.9": {
+      "n": 140,
+      "median": -0.25,
+      "mean": -0.48,
+      "negative_pct": 69.3
+    },
+    ">=5.0": {
+      "n": 65,
+      "median": -0.3,
+      "mean": -0.62,
+      "negative_pct": 67.7
+    }
+  },
+  "delta1_adjusted_for_month_hour_by_intensity": {
+    "0.1-0.9": {
+      "n": 206,
+      "median": -0.2,
+      "mean": -0.36,
+      "negative_pct": 55.3
+    },
+    "1.0-4.9": {
+      "n": 140,
+      "median": -0.2,
+      "mean": -0.43,
+      "negative_pct": 62.9
+    },
+    ">=5.0": {
+      "n": 65,
+      "median": -0.4,
+      "mean": -0.68,
+      "negative_pct": 69.2
+    }
+  },
+  "delta24_by_month_at_positive_rain_hour": {
+    "4": {
+      "n": 29,
+      "median": -0.8,
+      "mean": 0.34,
+      "negative_pct": 55.2
+    },
+    "5": {
+      "n": 70,
+      "median": -0.75,
+      "mean": 0.2,
+      "negative_pct": 54.3
+    },
+    "6": {
+      "n": 42,
+      "median": -0.05,
+      "mean": 1.02,
+      "negative_pct": 50.0
+    },
+    "7": {
+      "n": 126,
+      "median": 1.0,
+      "mean": 1.08,
+      "negative_pct": 31.7
+    },
+    "8": {
+      "n": 30,
+      "median": 1.85,
+      "mean": 1.71,
+      "negative_pct": 16.7
+    },
+    "9": {
+      "n": 76,
+      "median": 0.1,
+      "mean": -0.49,
+      "negative_pct": 47.4
+    },
+    "10": {
+      "n": 38,
+      "median": -2.65,
+      "mean": -2.54,
+      "negative_pct": 81.6
+    }
+  },
+  "delta24_by_observed_rain_intensity": {
+    "0.1-0.9": {
+      "n": 206,
+      "median": 0.35,
+      "mean": 0.14,
+      "negative_pct": 46.1
+    },
+    "1.0-4.9": {
+      "n": 140,
+      "median": -0.1,
+      "mean": 0.16,
+      "negative_pct": 50.0
+    },
+    ">=5.0": {
+      "n": 65,
+      "median": 1.0,
+      "mean": 1.08,
+      "negative_pct": 33.8
+    }
+  },
+  "delta24_at_last_positive_hour_per_day": {
+    "n": 69,
+    "median": 1.2,
+    "mean": 1.18,
+    "negative_pct": 27.5
+  },
+  "delta24_all_positive_hours": {
+    "n": 411,
+    "median": 0.4,
+    "mean": 0.29,
+    "negative_pct": 45.5
+  }
+}
