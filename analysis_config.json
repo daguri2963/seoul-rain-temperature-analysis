@@ -1,0 +1,17 @@
+{
+  "timezone": "Asia/Seoul",
+  "year": 2024,
+  "dawn_hours_inclusive": [4, 6],
+  "evening_hours_inclusive": [18, 21],
+  "daily_maximum_source": "official KMA daily maximum, not the maximum of hourly snapshots",
+  "comparison": "calendar day before rain episode starts versus calendar day after it ends",
+  "shoulder_months": [3, 4, 5, 9, 10, 11],
+  "shoulder_rule": "baseline day, complete episode and target day must lie in the same spring or autumn block",
+  "rain_blank_imputation": "disabled until independently verified",
+  "mixed_or_snow": "flag separately; do not label as either rain pattern",
+  "episode_dry_gap_hours": 6,
+  "short_shower_max_elapsed_hours": 3,
+  "steady_min_continuous_hours": 6,
+  "steady_max_observed_intensity_code": 0,
+  "temperature_neutral_band_c": 0.5
+}

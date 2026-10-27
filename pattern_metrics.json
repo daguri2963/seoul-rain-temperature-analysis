@@ -1,0 +1,392 @@
+{
+  "raw_daily_rows": 366,
+  "article_duration_mismatch_days": 0,
+  "parsed_interval_segments": 395,
+  "all_precipitation_episodes": 127,
+  "episode_group_counts": {
+    "other_rain": 79,
+    "snow_or_mixed": 23,
+    "light_persistent": 10,
+    "short_shower": 15
+  },
+  "boundary_temperature_exclusions": 2,
+  "results": {
+    "all_year": {
+      "short_shower": {
+        "dawn_mean_c": {
+          "n": 15,
+          "median_change_c": -0.03,
+          "mean_change_c": -0.07,
+          "down_n": 4,
+          "flat_n": 5,
+          "up_n": 6,
+          "expected_direction": "down",
+          "agreement_n": 4,
+          "agreement_pct": 26.7,
+          "strict_sign_agreement_n": 8,
+          "calendar_reference_expected_pct": 41.2,
+          "target_days_with_other_precip_n": 12
+        },
+        "daily_max_official_c": {
+          "n": 15,
+          "median_change_c": -0.6,
+          "mean_change_c": -0.98,
+          "down_n": 9,
+          "flat_n": 1,
+          "up_n": 5,
+          "expected_direction": "down",
+          "agreement_n": 9,
+          "agreement_pct": 60.0,
+          "strict_sign_agreement_n": 10,
+          "calendar_reference_expected_pct": 35.1,
+          "target_days_with_other_precip_n": 12
+        },
+        "evening_mean_c": {
+          "n": 15,
+          "median_change_c": 0.07,
+          "mean_change_c": -0.54,
+          "down_n": 7,
+          "flat_n": 3,
+          "up_n": 5,
+          "expected_direction": "down",
+          "agreement_n": 7,
+          "agreement_pct": 46.7,
+          "strict_sign_agreement_n": 7,
+          "calendar_reference_expected_pct": 33.4,
+          "target_days_with_other_precip_n": 12
+        }
+      },
+      "light_persistent": {
+        "dawn_mean_c": {
+          "n": 10,
+          "median_change_c": -1.72,
+          "mean_change_c": -0.74,
+          "down_n": 6,
+          "flat_n": 1,
+          "up_n": 3,
+          "expected_direction": "up",
+          "agreement_n": 3,
+          "agreement_pct": 30.0,
+          "strict_sign_agreement_n": 4,
+          "calendar_reference_expected_pct": 50.7,
+          "target_days_with_other_precip_n": 3
+        },
+        "daily_max_official_c": {
+          "n": 10,
+          "median_change_c": -2.95,
+          "mean_change_c": -1.39,
+          "down_n": 7,
+          "flat_n": 0,
+          "up_n": 3,
+          "expected_direction": "up",
+          "agreement_n": 3,
+          "agreement_pct": 30.0,
+          "strict_sign_agreement_n": 3,
+          "calendar_reference_expected_pct": 52.7,
+          "target_days_with_other_precip_n": 3
+        },
+        "evening_mean_c": {
+          "n": 10,
+          "median_change_c": -1.45,
+          "mean_change_c": -0.9,
+          "down_n": 7,
+          "flat_n": 0,
+          "up_n": 3,
+          "expected_direction": "up",
+          "agreement_n": 3,
+          "agreement_pct": 30.0,
+          "strict_sign_agreement_n": 3,
+          "calendar_reference_expected_pct": 53.1,
+          "target_days_with_other_precip_n": 3
+        }
+      }
+    },
+    "spring_autumn": {
+      "short_shower": {
+        "dawn_mean_c": {
+          "n": 3,
+          "median_change_c": -0.13,
+          "mean_change_c": 0.17,
+          "down_n": 0,
+          "flat_n": 2,
+          "up_n": 1,
+          "expected_direction": "down",
+          "agreement_n": 0,
+          "agreement_pct": 0.0,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 42.9,
+          "target_days_with_other_precip_n": 1
+        },
+        "daily_max_official_c": {
+          "n": 3,
+          "median_change_c": -0.6,
+          "mean_change_c": -2.2,
+          "down_n": 2,
+          "flat_n": 0,
+          "up_n": 1,
+          "expected_direction": "down",
+          "agreement_n": 2,
+          "agreement_pct": 66.7,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 29.8,
+          "target_days_with_other_precip_n": 1
+        },
+        "evening_mean_c": {
+          "n": 3,
+          "median_change_c": 1.45,
+          "mean_change_c": -0.67,
+          "down_n": 1,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "down",
+          "agreement_n": 1,
+          "agreement_pct": 33.3,
+          "strict_sign_agreement_n": 1,
+          "calendar_reference_expected_pct": 38.1,
+          "target_days_with_other_precip_n": 1
+        }
+      },
+      "light_persistent": {
+        "dawn_mean_c": {
+          "n": 7,
+          "median_change_c": -3.4,
+          "mean_change_c": -0.62,
+          "down_n": 4,
+          "flat_n": 0,
+          "up_n": 3,
+          "expected_direction": "up",
+          "agreement_n": 3,
+          "agreement_pct": 42.9,
+          "strict_sign_agreement_n": 3,
+          "calendar_reference_expected_pct": 52.0,
+          "target_days_with_other_precip_n": 1
+        },
+        "daily_max_official_c": {
+          "n": 7,
+          "median_change_c": -3.3,
+          "mean_change_c": -1.73,
+          "down_n": 5,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "up",
+          "agreement_n": 2,
+          "agreement_pct": 28.6,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 50.5,
+          "target_days_with_other_precip_n": 1
+        },
+        "evening_mean_c": {
+          "n": 7,
+          "median_change_c": -2.7,
+          "mean_change_c": -1.19,
+          "down_n": 5,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "up",
+          "agreement_n": 2,
+          "agreement_pct": 28.6,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 53.0,
+          "target_days_with_other_precip_n": 1
+        }
+      }
+    }
+  },
+  "sensitivity_excluding_other_precipitation_on_target_day": {
+    "all_year": {
+      "short_shower": {
+        "dawn_mean_c": {
+          "n": 3,
+          "median_change_c": 0.83,
+          "mean_change_c": 0.62,
+          "down_n": 0,
+          "flat_n": 1,
+          "up_n": 2,
+          "expected_direction": "down",
+          "agreement_n": 0,
+          "agreement_pct": 0.0,
+          "strict_sign_agreement_n": 1,
+          "calendar_reference_expected_pct": 38.7,
+          "target_days_with_other_precip_n": 0
+        },
+        "daily_max_official_c": {
+          "n": 3,
+          "median_change_c": 0.8,
+          "mean_change_c": 0.8,
+          "down_n": 1,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "down",
+          "agreement_n": 1,
+          "agreement_pct": 33.3,
+          "strict_sign_agreement_n": 1,
+          "calendar_reference_expected_pct": 37.4,
+          "target_days_with_other_precip_n": 0
+        },
+        "evening_mean_c": {
+          "n": 3,
+          "median_change_c": 1.52,
+          "mean_change_c": 1.57,
+          "down_n": 0,
+          "flat_n": 0,
+          "up_n": 3,
+          "expected_direction": "down",
+          "agreement_n": 0,
+          "agreement_pct": 0.0,
+          "strict_sign_agreement_n": 0,
+          "calendar_reference_expected_pct": 38.7,
+          "target_days_with_other_precip_n": 0
+        }
+      },
+      "light_persistent": {
+        "dawn_mean_c": {
+          "n": 7,
+          "median_change_c": -3.4,
+          "mean_change_c": -0.99,
+          "down_n": 5,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "up",
+          "agreement_n": 2,
+          "agreement_pct": 28.6,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 52.0,
+          "target_days_with_other_precip_n": 0
+        },
+        "daily_max_official_c": {
+          "n": 7,
+          "median_change_c": -2.6,
+          "mean_change_c": -1.54,
+          "down_n": 5,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "up",
+          "agreement_n": 2,
+          "agreement_pct": 28.6,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 50.5,
+          "target_days_with_other_precip_n": 0
+        },
+        "evening_mean_c": {
+          "n": 7,
+          "median_change_c": -1.23,
+          "mean_change_c": -0.9,
+          "down_n": 5,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "up",
+          "agreement_n": 2,
+          "agreement_pct": 28.6,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 53.0,
+          "target_days_with_other_precip_n": 0
+        }
+      }
+    },
+    "spring_autumn": {
+      "short_shower": {
+        "dawn_mean_c": {
+          "n": 2,
+          "median_change_c": 0.35,
+          "mean_change_c": 0.35,
+          "down_n": 0,
+          "flat_n": 1,
+          "up_n": 1,
+          "expected_direction": "down",
+          "agreement_n": 0,
+          "agreement_pct": 0.0,
+          "strict_sign_agreement_n": 1,
+          "calendar_reference_expected_pct": 42.9,
+          "target_days_with_other_precip_n": 0
+        },
+        "daily_max_official_c": {
+          "n": 2,
+          "median_change_c": 0.1,
+          "mean_change_c": 0.1,
+          "down_n": 1,
+          "flat_n": 0,
+          "up_n": 1,
+          "expected_direction": "down",
+          "agreement_n": 1,
+          "agreement_pct": 50.0,
+          "strict_sign_agreement_n": 1,
+          "calendar_reference_expected_pct": 30.4,
+          "target_days_with_other_precip_n": 0
+        },
+        "evening_mean_c": {
+          "n": 2,
+          "median_change_c": 1.6,
+          "mean_change_c": 1.6,
+          "down_n": 0,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "down",
+          "agreement_n": 0,
+          "agreement_pct": 0.0,
+          "strict_sign_agreement_n": 0,
+          "calendar_reference_expected_pct": 39.3,
+          "target_days_with_other_precip_n": 0
+        }
+      },
+      "light_persistent": {
+        "dawn_mean_c": {
+          "n": 6,
+          "median_change_c": -3.77,
+          "mean_change_c": -0.82,
+          "down_n": 4,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "up",
+          "agreement_n": 2,
+          "agreement_pct": 33.3,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 52.0,
+          "target_days_with_other_precip_n": 0
+        },
+        "daily_max_official_c": {
+          "n": 6,
+          "median_change_c": -2.95,
+          "mean_change_c": -1.37,
+          "down_n": 4,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "up",
+          "agreement_n": 2,
+          "agreement_pct": 33.3,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 49.2,
+          "target_days_with_other_precip_n": 0
+        },
+        "evening_mean_c": {
+          "n": 6,
+          "median_change_c": -2.84,
+          "mean_change_c": -0.94,
+          "down_n": 4,
+          "flat_n": 0,
+          "up_n": 2,
+          "expected_direction": "up",
+          "agreement_n": 2,
+          "agreement_pct": 33.3,
+          "strict_sign_agreement_n": 2,
+          "calendar_reference_expected_pct": 53.2,
+          "target_days_with_other_precip_n": 0
+        }
+      }
+    }
+  },
+  "start_month_by_group": {
+    "short_shower": {
+      "7": 4,
+      "8": 8,
+      "9": 3
+    },
+    "light_persistent": {
+      "3": 3,
+      "4": 3,
+      "6": 1,
+      "7": 2,
+      "10": 1
+    }
+  },
+  "interpretation": "Exploratory fixed-hypothesis agreement; no front identification or independent forecast validation."
+}
