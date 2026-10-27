@@ -85,6 +85,25 @@ positives_year = [i for i, r in enumerate(rows) if r["state"] == "positive"]
 # lag comparisons in April-October, where the reporting interval is hourly.
 CORE_MONTHS = tuple(range(4, 11))
 positives = [i for i in positives_year if rows[i]["time"].month in CORE_MONTHS]
+
+# Feasibility check for a common 3-hour rain interval. A warm-season window
+# is usable under a conservative rule only if all three hourly amounts are
+# numeric. Blank entries are deliberately not reclassified as zero.
+three_hour_windows = Counter()
+for i, row in enumerate(rows):
+    if row["time"].month not in CORE_MONTHS or row["time"].hour % 3 or i < 2:
+        continue
+    block = rows[i - 2:i + 1]
+    if any(item["time"].month not in CORE_MONTHS for item in block):
+        continue
+    three_hour_windows["total"] += 1
+    if all(item["rain"] is not None for item in block):
+        three_hour_windows["all_numeric"] += 1
+    elif any(item["state"] == "blank_qc9" for item in block):
+        three_hour_windows["has_qc9"] += 1
+    else:
+        three_hour_windows["blank_no_flag"] += 1
+
 daily = defaultdict(list)
 for row in rows:
     daily[row["time"].date()].append(row)
@@ -157,6 +176,7 @@ metrics = {
     "rain_positive_hours_year": len(positives_year),
     "core_months_for_hourly_rain_comparison": list(CORE_MONTHS),
     "rain_positive_hours_core": len(positives),
+    "three_hour_warm_season_window_audit": dict(three_hour_windows),
     "rain_positive_days_year": len({rows[i]["time"].date() for i in positives_year}),
     "temperature_min_c": min(r["temp"] for r in rows),
     "temperature_max_c": max(r["temp"] for r in rows),

@@ -18,6 +18,12 @@
     10
   ],
   "rain_positive_hours_core": 411,
+  "three_hour_warm_season_window_audit": {
+    "total": 1711,
+    "blank_no_flag": 1171,
+    "has_qc9": 380,
+    "all_numeric": 160
+  },
   "rain_positive_days_year": 110,
   "temperature_min_c": -14.0,
   "temperature_max_c": 36.3,
