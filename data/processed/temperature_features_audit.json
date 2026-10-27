@@ -1,0 +1,19 @@
+{
+  "days": 366,
+  "shoulder_days": 183,
+  "dawn_hours": [
+    4,
+    5,
+    6
+  ],
+  "evening_hours": [
+    18,
+    19,
+    20,
+    21
+  ],
+  "official_daily_source_present": true,
+  "official_daily_max_values": 366,
+  "stage": "temperature_feature_preparation",
+  "note": "Temperature features only; no rain blanks were imputed or rain events inferred."
+}
