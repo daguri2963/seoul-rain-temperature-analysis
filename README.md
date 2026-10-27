@@ -4,6 +4,8 @@
 
 처음 읽거나 발표를 준비한다면 [설명·학습 가이드](EXPLANATION_GUIDE.md)를 먼저 읽는다. 용어·계산 예시·그림 읽는 법·발표 예문·예상 질문을 담았다. [제출 요구사항 검토](SUBMISSION_REVIEW.md)에는 충족 여부와 보완·검증 기록을 정리했다.
 
+[급변 구간 추가 탐색](RAPID_CHANGE_ANALYSIS.md)에서는 2~3일 사이 일평균기온이 5°C 이상 변한 구간에 기존 강수 양상 가설의 징후가 있었는지 확인한다. 전후 2·3일 평균 비교도 별도로 제공한다.
+
 강수량 공란을 임의로 0으로 채우지 않고, 일기현상 기사의 시·분 기록으로 양상을 추출했다. 기사에서 계산한 하루 강수 시간을 공식 강수 계속시간과 366일 모두 대조했다. 사후 사례 일치율이며 운영 가능한 예보 정확도를 검증한 것은 아니다.
 
 ## 실행
@@ -16,6 +18,7 @@ python analysis.py
 python scripts/build_daily_temperature.py
 python -X utf8 scripts/parse_rain_articles.py
 python -X utf8 analysis_patterns.py
+python -X utf8 analysis_rapid_changes.py
 python -X utf8 scripts/verify_submission.py
 ```
 
@@ -24,6 +27,7 @@ python -X utf8 scripts/verify_submission.py
 - `parse_rain_articles.py`: 기상청 기사 시각을 읽고 공식 강수 계속시간과 대조한다.
 - `analysis_patterns.py`: 양상을 분류한 뒤 기온을 연결하고 결과 JSON·사례 CSV·PNG 그림 3개를 생성한다. 기사 검증이 실패하면 중단한다.
 - `verify_submission.py`: 원본 기온을 Decimal로 독립 재계산하고 사례 방향·결과 표·달력 비교선·로컬 링크·이미지를 대조해 `submission_checks.json`에 기록한다.
+- `analysis_rapid_changes.py`: 5°C 이상 급변 비교쌍과 기존 강수 양상의 일치·반대 사례를 추가 탐색한다.
 
 설정은 [analysis_config.json](analysis_config.json)에 있다. Matplotlib는 Windows의 맑은 고딕이 있으면 사용하고, 다른 환경에서는 한글 글꼴을 별도로 설정해야 한다. 원본 CSV는 CP949, 가공 CSV는 UTF-8 BOM이다.
 

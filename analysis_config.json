@@ -13,5 +13,8 @@
   "short_shower_max_elapsed_hours": 3,
   "steady_min_continuous_hours": 6,
   "steady_max_observed_intensity_code": 0,
-  "temperature_neutral_band_c": 0.5
+  "temperature_neutral_band_c": 0.5,
+  "rapid_change_threshold_c": 5,
+  "rapid_calendar_lags_days": [2, 3],
+  "rapid_pre_post_average_lengths_days": [2, 3]
 }
