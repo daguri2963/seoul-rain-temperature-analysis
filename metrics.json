@@ -163,5 +163,30 @@
     "median": 0.4,
     "mean": 0.29,
     "negative_pct": 45.5
+  },
+  "exploratory_24h_direction_forecast": {
+    "unit": "first observed positive rainfall record per calendar day, April-October",
+    "target": "temperature at t+24h lower than at t",
+    "train_months": "April-July",
+    "test_months": "August-October",
+    "train_n": 40,
+    "test_n": 29,
+    "train_cooler_n": 22,
+    "test_cooler_n": 15,
+    "rain_bin_train_counts": {
+      "0.1-0.9": 21,
+      "1.0-4.9": 15,
+      ">=5.0": 4
+    },
+    "rain_bin_rule_predict_cooler": {
+      "0.1-0.9": true,
+      "1.0-4.9": false,
+      ">=5.0": true
+    },
+    "baseline_predict_cooler": true,
+    "baseline_test_hits": 15,
+    "rain_rule_test_hits": 13,
+    "baseline_accuracy_pct": 51.7,
+    "rain_rule_accuracy_pct": 44.8
   }
 }

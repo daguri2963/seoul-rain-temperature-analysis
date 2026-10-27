@@ -163,6 +163,37 @@ last_positive_changes = [
     for i in day_last_positive.values() if i + 24 < len(rows)
 ]
 
+# Exploratory forecast check: use the first *observed positive* amount of each
+# day, which is available at that time, to predict whether temperature 24 h
+# later is lower. Keep one observation per day and split chronologically.
+first_positive_by_day = {}
+for i in positives:
+    first_positive_by_day.setdefault(rows[i]["time"].date(), i)
+forecast_records = []
+for i in first_positive_by_day.values():
+    if i + 24 < len(rows):
+        forecast_records.append({
+            "time": rows[i]["time"],
+            "month": rows[i]["time"].month,
+            "intensity_bin": bin_name(rows[i]["rain"]),
+            "cooler_after_24h": rows[i + 24]["temp"] < rows[i]["temp"],
+        })
+forecast_cutoff = datetime(2024, 8, 1)
+# The training target must also be observed before the evaluation period.
+forecast_train = [r for r in forecast_records if r["time"] + timedelta(hours=24) < forecast_cutoff]
+forecast_test = [r for r in forecast_records if r["time"] >= forecast_cutoff]
+assert forecast_train and forecast_test
+baseline_cooler = sum(r["cooler_after_24h"] for r in forecast_train) >= len(forecast_train) / 2
+rain_rule = {}
+for key in ("0.1-0.9", "1.0-4.9", ">=5.0"):
+    group = [r for r in forecast_train if r["intensity_bin"] == key]
+    cooler_count = sum(r["cooler_after_24h"] for r in group)
+    # A tie or empty group falls back to the training-set majority.
+    rain_rule[key] = (cooler_count > len(group) / 2 if 2 * cooler_count != len(group)
+                      else baseline_cooler)
+baseline_hits = sum(r["cooler_after_24h"] == baseline_cooler for r in forecast_test)
+rain_rule_hits = sum(r["cooler_after_24h"] == rain_rule[r["intensity_bin"]] for r in forecast_test)
+
 
 def summary(values):
     return {"n": len(values), "median": median(values),
@@ -194,6 +225,22 @@ metrics = {
     "delta24_by_observed_rain_intensity": {key: summary(delta24_bins[key]) for key in ("0.1-0.9", "1.0-4.9", ">=5.0")},
     "delta24_at_last_positive_hour_per_day": summary(last_positive_changes),
     "delta24_all_positive_hours": summary([v for values in delta24_months.values() for v in values]),
+    "exploratory_24h_direction_forecast": {
+        "unit": "first observed positive rainfall record per calendar day, April-October",
+        "target": "temperature at t+24h lower than at t",
+        "train_months": "April-July", "test_months": "August-October",
+        "train_n": len(forecast_train), "test_n": len(forecast_test),
+        "train_cooler_n": sum(r["cooler_after_24h"] for r in forecast_train),
+        "test_cooler_n": sum(r["cooler_after_24h"] for r in forecast_test),
+        "rain_bin_train_counts": {key: sum(r["intensity_bin"] == key for r in forecast_train)
+                                  for key in rain_rule},
+        "rain_bin_rule_predict_cooler": rain_rule,
+        "baseline_predict_cooler": baseline_cooler,
+        "baseline_test_hits": baseline_hits,
+        "rain_rule_test_hits": rain_rule_hits,
+        "baseline_accuracy_pct": round(100 * baseline_hits / len(forecast_test), 1),
+        "rain_rule_accuracy_pct": round(100 * rain_rule_hits / len(forecast_test), 1),
+    },
 }
 (ROOT / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -269,4 +316,28 @@ boxplot_figure(
     ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
     "03_delta24_by_month.svg", -15, 15,
 )
+
+# Figure 4: honest held-out comparison of rain-only rule and no-rain baseline.
+width, height = 760, 400
+elements = [text(55, 42, "Can rainfall amount predict next-day cooling?", 22, weight="bold"),
+            text(55, 68, "Held-out Aug-Oct 2024 | first observed positive record per day | n=29", 14, "#536576")]
+chart_left, chart_right, chart_top, chart_bottom = 80, 720, 105, 305
+for percent in (0, 25, 50, 75, 100):
+    yy = chart_bottom - (chart_bottom - chart_top) * percent / 100
+    elements += [line(chart_left, yy, chart_right, yy, "#e6ebf0"),
+                 text(chart_left - 12, yy + 5, f"{percent}%", 12, "#536576", "end")]
+for center, label, hits, color in (
+    (250, "Training-majority baseline", baseline_hits, "#6f8494"),
+    (550, "Rainfall-amount rule", rain_rule_hits, "#1686ad"),
+):
+    value = 100 * hits / len(forecast_test)
+    bar_top = chart_bottom - (chart_bottom - chart_top) * value / 100
+    elements += [f'<rect x="{center - 64}" y="{bar_top:.1f}" width="128" '
+                 f'height="{chart_bottom - bar_top:.1f}" fill="{color}" />',
+                 text(center, bar_top - 10, f"{hits}/{len(forecast_test)} ({value:.1f}%)", 17,
+                      "#1b2938", "middle", "bold"),
+                 text(center, 337, label, 15, "#1b2938", "middle")]
+elements.append(text(55, 378, "A small, season-shifted test; accuracy does not establish a general law.",
+                     13, "#536576"))
+(FIGURES / "04_forecast_comparison.svg").write_text(svg_doc(width, height, elements), encoding="utf-8")
 print(json.dumps(metrics, ensure_ascii=True, indent=2))
