@@ -1,0 +1,81 @@
+{
+  "review_date": "2026-10-27",
+  "python_version": "3.14.7",
+  "matplotlib_version": "3.10.8",
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "hourly_source_8784_continuous_points",
+      "passed": true
+    },
+    {
+      "name": "one_station_108",
+      "passed": true
+    },
+    {
+      "name": "daily_source_366_unique_days",
+      "passed": true
+    },
+    {
+      "name": "temperature_no_missing",
+      "passed": true
+    },
+    {
+      "name": "daily_features_independently_recomputed_from_sources",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "episode_changes_and_directions_from_decimal_sources",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "exact_minus_point_five_is_neutral",
+      "passed": true
+    },
+    {
+      "name": "primary_summary_counts_and_medians",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "calendar_references_recomputed_with_decimal",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "all_12_report_agreement_cells_match_results",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "article_duration_check_366_days",
+      "passed": true
+    },
+    {
+      "name": "all_local_markdown_links_exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "report_has_4_readable_image_files",
+      "passed": true,
+      "detail": [
+        "images/01_temperature_timeline.svg",
+        "images/05_pattern_temperature_seasons.png",
+        "images/06_pattern_agreement.png",
+        "images/07_recorded_pattern_examples.png"
+      ]
+    },
+    {
+      "name": "report_has_ai_log_and_required_sections",
+      "passed": true
+    },
+    {
+      "name": "python_supported",
+      "passed": true
+    }
+  ],
+  "limits": "Artifact and calculation verification only; not proof of causality, forecast skill or learner understanding."
+}

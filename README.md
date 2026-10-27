@@ -2,6 +2,8 @@
 
 최종 결과는 [REPORT.md](REPORT.md)에 있다. 기상청 서울(108)의 시간자료 **8,784개**와 추가 일자료 **366일**을 사용한다. 가설은 **짧은 소나기 뒤 하강 / 약하고 지속적인 강수 뒤 상승**이다. 새벽·공식 일최고·저녁 기온을 연중 전체와 봄·가을 범위로 비교했다.
 
+처음 읽거나 발표를 준비한다면 [설명·학습 가이드](EXPLANATION_GUIDE.md)를 먼저 읽는다. 용어·계산 예시·그림 읽는 법·발표 예문·예상 질문을 담았다. [제출 요구사항 검토](SUBMISSION_REVIEW.md)에는 충족 여부와 보완·검증 기록을 정리했다.
+
 강수량 공란을 임의로 0으로 채우지 않고, 일기현상 기사의 시·분 기록으로 양상을 추출했다. 기사에서 계산한 하루 강수 시간을 공식 강수 계속시간과 366일 모두 대조했다. 사후 사례 일치율이며 운영 가능한 예보 정확도를 검증한 것은 아니다.
 
 ## 실행
@@ -14,12 +16,14 @@ python analysis.py
 python scripts/build_daily_temperature.py
 python -X utf8 scripts/parse_rain_articles.py
 python -X utf8 analysis_patterns.py
+python -X utf8 scripts/verify_submission.py
 ```
 
-- `analysis.py`: 초기 시간자료 지표와 SVG 그림 3개를 생성한다.
+- `analysis.py`: 초기 시간자료 지표와 SVG 그림 4개를 생성한다. 최종 리포트에는 그중 연간 기온 그림을 사용한다.
 - `build_daily_temperature.py`: 새벽 04~06시 평균·공식 일최고·저녁 18~21시 평균을 366일 표로 만든다.
 - `parse_rain_articles.py`: 기상청 기사 시각을 읽고 공식 강수 계속시간과 대조한다.
 - `analysis_patterns.py`: 양상을 분류한 뒤 기온을 연결하고 결과 JSON·사례 CSV·PNG 그림 3개를 생성한다. 기사 검증이 실패하면 중단한다.
+- `verify_submission.py`: 원본 기온을 Decimal로 독립 재계산하고 사례 방향·결과 표·달력 비교선·로컬 링크·이미지를 대조해 `submission_checks.json`에 기록한다.
 
 설정은 [analysis_config.json](analysis_config.json)에 있다. Matplotlib는 Windows의 맑은 고딕이 있으면 사용하고, 다른 환경에서는 한글 글꼴을 별도로 설정해야 한다. 원본 CSV는 CP949, 가공 CSV는 UTF-8 BOM이다.
 
@@ -30,6 +34,8 @@ analysis_patterns.py              # 현재 핵심 분석
 analysis_config.json              # 시간대·계절·분류 기준
 analysis.py                       # 초기 탐색, 연간 기온 그림
 REPORT.md                         # 최종 리포트
+EXPLANATION_GUIDE.md               # 읽기·발표·용어·그래프 해설
+SUBMISSION_REVIEW.md               # 필수 요구사항 검토와 조치
 PRD.md                            # 최종 기준과 작업 체크리스트
 requirements.txt
 data/raw/
@@ -43,6 +49,7 @@ data/processed/
   rain_episodes_2024.csv
   rain_article_audit.json
 pattern_metrics.json              # 핵심 결과와 재강수 제외 민감도
+submission_checks.json            # 제출 검증 15개 항목의 결과
 metrics.json                      # 초기 시간자료 탐색 지표
 images/                           # SVG·PNG 시각화
 scripts/                          # 기사 파싱·기온 집계·원본 점검

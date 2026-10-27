@@ -38,7 +38,7 @@
           "agreement_n": 9,
           "agreement_pct": 60.0,
           "strict_sign_agreement_n": 10,
-          "calendar_reference_expected_pct": 35.1,
+          "calendar_reference_expected_pct": 34.2,
           "target_days_with_other_precip_n": 12
         },
         "evening_mean_c": {
@@ -220,7 +220,7 @@
           "agreement_n": 1,
           "agreement_pct": 33.3,
           "strict_sign_agreement_n": 1,
-          "calendar_reference_expected_pct": 37.4,
+          "calendar_reference_expected_pct": 36.3,
           "target_days_with_other_precip_n": 0
         },
         "evening_mean_c": {

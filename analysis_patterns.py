@@ -83,6 +83,9 @@ neutral = CONFIG['temperature_neutral_band_c']
 
 
 def direction(value):
+    # Use the same 0.001 C precision as exported changes. Without rounding,
+    # e.g. 10.1 - 10.6 may be slightly below -0.5 in binary floating point.
+    value = round(value, 3)
     return 'down' if value < -neutral else 'up' if value > neutral else 'flat'
 
 
